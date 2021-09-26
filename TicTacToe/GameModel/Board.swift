@@ -22,7 +22,7 @@ enum GameStatus: Equatable {
 }
 
 class Board: NSObject, ObservableObject, GKGameModel {
-    @Published var fields: [TTTSymbol]
+    @Published var fields: [TTTSymbol] = [.none, .none, .none, .none, .none, .none, .none, .none, .none]
     var players: [GKGameModelPlayer]?
     var activePlayer: GKGameModelPlayer?
     
@@ -43,11 +43,8 @@ class Board: NSObject, ObservableObject, GKGameModel {
     }
     
     override init() {
-        fields = [.none, .none, .none, .none, .none, .none, .none, .none, .none]
-        /// evtl. an anderer Stelle initialisieren
         players = [Player(symbol: .circle), Player(symbol: .cross)]
         activePlayer = players?[0]
-        /// ende Initialisierung
         super.init()
     }
     
