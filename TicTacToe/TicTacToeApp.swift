@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct TicTacToeApp: App {
+    @State var board = Board()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(board: board)
         }
     }
 }

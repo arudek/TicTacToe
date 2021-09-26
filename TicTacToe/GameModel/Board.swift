@@ -5,6 +5,7 @@
 //  Created by Arne Rudek on 26.09.21.
 //
 
+import Foundation
 import UIKit
 import GameplayKit
 
@@ -14,8 +15,14 @@ enum TTTSymbol: Int {
     case cross
 }
 
-class Board: NSObject, GKGameModel {
-    var fields = [TTTSymbol]()
+enum GameStatus: Equatable {
+    case playing
+    case ended(Player)
+    case draw
+}
+
+class Board: NSObject, ObservableObject, GKGameModel {
+    @Published var fields: [TTTSymbol]
     var players: [GKGameModelPlayer]?
     var activePlayer: GKGameModelPlayer?
     
@@ -32,20 +39,21 @@ class Board: NSObject, GKGameModel {
         guard let players = players else { return nil }
         
         return players.filter { $0.playerId != player.playerId }
-            .first as? Player
+        .first as? Player
     }
     
     override init() {
-        for _ in 0 ..< 9 {
-            fields.append(.none)
-        }
-        
+        fields = [.none, .none, .none, .none, .none, .none, .none, .none, .none]
         /// evtl. an anderer Stelle initialisieren
         players = [Player(symbol: .circle), Player(symbol: .cross)]
         activePlayer = players?[0]
         /// ende Initialisierung
-        
         super.init()
+    }
+    
+    func reset() {
+        fields = [.none, .none, .none, .none, .none, .none, .none, .none, .none]
+        activePlayer = players?[0]
     }
     
     /// Für AI
@@ -70,7 +78,7 @@ class Board: NSObject, GKGameModel {
     func gameModelUpdates(for player: GKGameModelPlayer) -> [GKGameModelUpdate]? {
         
         if let player = player as? Player,
-        let opponent = opponent(for: player) {
+           let opponent = opponent(for: player) {
             if isWin(for: player) || isWin(for: opponent) {
                 return nil
             }
@@ -91,12 +99,22 @@ class Board: NSObject, GKGameModel {
     
     /// Spielzug ausführen
     func apply(_ gameModelUpdate: GKGameModelUpdate) {
-        guard let currentPlayer = currentPlayer else { return }
-
         if let move = gameModelUpdate as? Move {
-            fields[move.column * 3 + move.row] = currentPlayer.symbol
-            self.activePlayer = self.opponent
+            setSymbol(column: move.column, row: move.row)
         }
+    }
+    
+    func score(for player: GKGameModelPlayer) -> Int {
+        if let playerObject = player as? Player,
+           let opponent = opponent(for: playerObject) {
+            if isWin(for: playerObject) {
+                return 1000
+            } else if isWin(for: opponent) {
+                return -1000
+            }
+        }
+        
+        return 0
     }
     
     /// Ende AI
@@ -118,7 +136,34 @@ class Board: NSObject, GKGameModel {
         return horizontal || vertical || diagonal
     }
     
+    func isEnded() -> GameStatus {
+        guard let currenPlayer = currentPlayer,
+              let opponent = opponent(for: currenPlayer) else { return .playing }
+        
+        let winner = isWin(for: currenPlayer) ? currentPlayer :
+        isWin(for: opponent) ? opponent : nil
+        if winner != nil {
+            return .ended(winner!)
+        }
+        
+        let isFull = fields.filter { $0 == .none }.count == 0
+        
+        return isFull ? .draw : .playing
+    }
+    
     func canMove(column: Int, row: Int) -> Bool {
+        guard isEnded() == .playing else { return false }
         return fields[column * 3 + row] == .none
+    }
+    
+    func setSymbol(column: Int, row: Int) {
+        guard let currentPlayer = currentPlayer else { return }
+        
+        fields[column * 3 + row] = currentPlayer.symbol
+        self.activePlayer = self.opponent
+    }
+    
+    func getSymbol(column: Int, row: Int) -> TTTSymbol {
+        return fields[column * 3 + row]
     }
 }

@@ -8,23 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		A77CE9D827008A8E0036C4A6 /* TicTacToeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9D727008A8E0036C4A6 /* TicTacToeApp.swift */; };
-		A77CE9DA27008A8E0036C4A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9D927008A8E0036C4A6 /* ContentView.swift */; };
 		A77CE9DC27008A8F0036C4A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77CE9DB27008A8F0036C4A6 /* Assets.xcassets */; };
 		A77CE9DF27008A8F0036C4A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77CE9DE27008A8F0036C4A6 /* Preview Assets.xcassets */; };
 		A77CE9E727008B640036C4A6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9E627008B640036C4A6 /* Board.swift */; };
 		A77CE9E927008C910036C4A6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9E827008C910036C4A6 /* Player.swift */; };
 		A77CE9EB2700928F0036C4A6 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9EA2700928F0036C4A6 /* Move.swift */; };
+		A77CE9EE27009E9B0036C4A6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9ED27009E9B0036C4A6 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A77CE9D427008A8E0036C4A6 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77CE9D727008A8E0036C4A6 /* TicTacToeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeApp.swift; sourceTree = "<group>"; };
-		A77CE9D927008A8E0036C4A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A77CE9DB27008A8F0036C4A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A77CE9DE27008A8F0036C4A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A77CE9E627008B640036C4A6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		A77CE9E827008C910036C4A6 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A77CE9EA2700928F0036C4A6 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		A77CE9ED27009E9B0036C4A6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +57,9 @@
 		A77CE9D627008A8E0036C4A6 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				A77CE9EC27009E7E0036C4A6 /* Views */,
 				A77CE9E527008B2A0036C4A6 /* GameModel */,
 				A77CE9D727008A8E0036C4A6 /* TicTacToeApp.swift */,
-				A77CE9D927008A8E0036C4A6 /* ContentView.swift */,
 				A77CE9DB27008A8F0036C4A6 /* Assets.xcassets */,
 				A77CE9DD27008A8F0036C4A6 /* Preview Content */,
 			);
@@ -82,6 +82,14 @@
 				A77CE9EA2700928F0036C4A6 /* Move.swift */,
 			);
 			path = GameModel;
+			sourceTree = "<group>";
+		};
+		A77CE9EC27009E7E0036C4A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A77CE9ED27009E9B0036C4A6 /* MainView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A77CE9EB2700928F0036C4A6 /* Move.swift in Sources */,
+				A77CE9EE27009E9B0036C4A6 /* MainView.swift in Sources */,
 				A77CE9E927008C910036C4A6 /* Player.swift in Sources */,
-				A77CE9DA27008A8E0036C4A6 /* ContentView.swift in Sources */,
 				A77CE9D827008A8E0036C4A6 /* TicTacToeApp.swift in Sources */,
 				A77CE9E727008B640036C4A6 /* Board.swift in Sources */,
 			);
