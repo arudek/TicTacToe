@@ -14,6 +14,7 @@
 		A77CE9E927008C910036C4A6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9E827008C910036C4A6 /* Player.swift */; };
 		A77CE9EB2700928F0036C4A6 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9EA2700928F0036C4A6 /* Move.swift */; };
 		A77CE9EE27009E9B0036C4A6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE9ED27009E9B0036C4A6 /* MainView.swift */; };
+		A77CE9F02700CF470036C4A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A77CE9EF2700CF470036C4A6 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A77CE9E827008C910036C4A6 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A77CE9EA2700928F0036C4A6 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		A77CE9ED27009E9B0036C4A6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A77CE9EF2700CF470036C4A6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		A77CE9D627008A8E0036C4A6 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				A77CE9EF2700CF470036C4A6 /* README.md */,
 				A77CE9EC27009E7E0036C4A6 /* Views */,
 				A77CE9E527008B2A0036C4A6 /* GameModel */,
 				A77CE9D727008A8E0036C4A6 /* TicTacToeApp.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77CE9F02700CF470036C4A6 /* README.md in Resources */,
 				A77CE9DF27008A8F0036C4A6 /* Preview Assets.xcassets in Resources */,
 				A77CE9DC27008A8F0036C4A6 /* Assets.xcassets in Resources */,
 			);
