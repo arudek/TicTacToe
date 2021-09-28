@@ -8,6 +8,7 @@
 import SwiftUI
 import GameplayKit
 
+
 extension MainView {
     class ViewModel: ObservableObject {
         var strategist: GKMinmaxStrategist!
